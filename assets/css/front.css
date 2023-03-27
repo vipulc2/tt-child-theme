@@ -1,0 +1,100 @@
+.ttc-product-grid-container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.ttc-product-box {
+    flex-basis: calc(33.33% - 20px);
+    margin: 10px;
+    background-color: #ccc;
+}
+
+.ttc-product-thumbnail img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.ttc-product-title {
+    font-size: 25px;
+    text-align: center;
+}
+
+.ttc-product-onsale {
+    position: absolute;
+    width: 100px;
+    background-color: #EE4B2B;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px;
+}
+
+/* 
+Media Queries
+*/
+@media (max-width: 1024px) {
+    .ttc-product-box {
+        flex-basis: calc(50% - 20px);
+        margin: 10px;
+    }
+    .ttc-product-thumbnail img {
+        height: 250px;
+    }
+}
+@media (max-width: 768px) {
+    .ttc-product-box {
+        flex-basis: 100%;
+        margin: 10px;
+    }
+    .ttc-product-thumbnail img {
+        height: 150px;
+    }
+}
+
+/* 
+
+Single Product Template
+
+*/
+.ttc-product-container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.ttc-column-image,
+.ttc-column-content {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    padding: 20px;
+}
+.ttc-featured-image > img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.ttc-gallery-image {
+    display: flex;
+}
+.ttc-gallery-image > img {
+    width: 15%;
+}
+
+.ttc-product-title,
+.ttc-product-price,
+.ttc-product-description {
+    margin: 50px;
+    font-size: 24;
+    text-align: center;
+}
+
+.ttc-product-description {
+    width: 100%;
+    padding: 20px;
+}
+
+.ttc-product-video {
+    margin: 50px 0;
+}

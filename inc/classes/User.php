@@ -10,8 +10,8 @@ class User {
 
     public function __construct() {
 
-        add_action( 'after_setup_theme', [ $this, 'create_editor_user' ] );
-        add_action( 'after_setup_theme', [ $this, 'disable_adminbar' ] );
+        add_action( 'after_switch_theme', [ $this, 'create_editor_user' ] );
+        add_filter( 'show_admin_bar', [ $this, 'disable_adminbar' ] );
 
     }
 
@@ -34,16 +34,13 @@ class User {
     /**
      * Disale Admin Bar for the wp-test user
      */
-    public function disable_adminbar() {
+    public function disable_adminbar( $show ) {
 
-        add_filter( 'show_admin_bar', function( $show ) {
         $current_user = wp_get_current_user();
         if ( $current_user->user_email == 'wptest@elementor.com' ) {
             return false;
         }
         return $show;
-        } );
-    
     }
 }
 

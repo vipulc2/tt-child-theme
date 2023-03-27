@@ -1,0 +1,23 @@
+.ttc-metabox {
+    display: flex;
+    flex-direction: column;
+}
+
+.ttc-metabox label {
+    display: inline-block;
+    width: 100px;
+}
+
+.ttc-metabox__field {
+    margin-bottom: 10px;
+}
+
+.ttc-image-boxes {
+    display: flex;
+}
+
+.ttc-image-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
