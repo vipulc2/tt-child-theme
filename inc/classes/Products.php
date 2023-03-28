@@ -126,7 +126,7 @@ class Products {
 
         foreach ( $post_value_fields as $post_value ) {
 
-            if ( isset( $_POST[$post_value] ) ) {
+            if ( isset( $_POST[$post_value] ) && isset ( $_POST['ttc_metabox_nonce'] ) && wp_verify_nonce( $_POST['ttc_metabox_nonce'], 'ttc_metabox_nonce' ) ) {
                 
                 update_post_meta( $post_id, $post_value, $_POST[$post_value] );
             }
@@ -149,11 +149,9 @@ class Products {
 
             <?php
 
-          //  if ( isset( $_POST['ttc-image-url'] ) && ! empty( $_POST['ttc-image-url'] ) ) {
-
-            //} else {//
 
                 $image_urls = get_post_meta( $post->ID, 'ttc-image-url', true );
+                if ( ! empty ( $image_urls ) ) {
                 $image_urls = explode( ',', $image_urls );
                 foreach( $image_urls as $image_url ) {
                 ?>
@@ -164,7 +162,7 @@ class Products {
 
             <?php
                 }
-           // }
+                }
             ?>
             </div>
         </div>
@@ -176,6 +174,8 @@ class Products {
     public function metabox_product_price( $post ) {
 
         $post_meta = get_post_meta( $post->ID );
+
+        wp_nonce_field( 'ttc_metabox_nonce', 'ttc_metabox_nonce' );
 
         ?>
 
