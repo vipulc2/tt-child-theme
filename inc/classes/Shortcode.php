@@ -28,13 +28,22 @@ class Shortcode {
             return;
         }
 
-        ?>
+        $image_url = get_the_post_thumbnail_url( $product->ID );
+        $title = $product->post_title;
+        $price = esc_attr( $post_meta['ttc-onsale'][0] == 'true' ) ? $post_meta['ttc-price-sale'][0] : $post_meta['ttc-price-regular'][0];
 
-        <div style="background-color:<?php echo $bgcolor; ?>; padding: 20px;">
-            <img src="<?php echo get_the_post_thumbnail_url( $product->ID ); ?>">
-           <h2><?php echo $product->post_title; ?></h2>
+        $values = apply_filters( 'ttc_product_shortcode_values', array(
+            'image_url' => $image_url,
+            'title' => $title,
+            'price' => $price,
+            'bgcolor' => $bgcolor
+        ) );        ?>
+
+        <div style="background-color:<?php echo $values['bgcolor']; ?>; padding: 20px;">
+            <img src="<?php echo $values['image_url']; ?>">
+           <h2><?php echo $values['title']; ?></h2>
            <div>
-                <?php echo esc_attr( $post_meta['ttc-onsale'][0] == 'true' ) ? 'Price $' . $post_meta['ttc-price-sale'][0] : 'Price $' . $post_meta['ttc-price-regular'][0]; ?>
+                <?php echo "Price $ " . $values['price']; ?>
             </div>
         </div>
         <?php

@@ -155,6 +155,15 @@ get_header();
 	?>
 
 </main>
+<?php 
+add_filter( 'ttc_product_shortcode_values', 'callback_function' );
+function callback_function( $values ) {
+    $values['image_url'] = 'asdasd';
+    $values['bgcolor'] = '#333';
+    $values['title'] = 'kokokokok';
+    $values['price'] = '12121';
 
+}
+?>
 <?php
 get_footer();
