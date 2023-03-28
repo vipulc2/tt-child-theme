@@ -5,6 +5,7 @@ namespace TwentyChild;
 include_once( 'User.php' );
 include_once( 'Products.php' );
 include_once( 'Assets.php' );
+include_once( 'Shortcode.php' );
 
 /**
  * Used to initialize 
@@ -17,6 +18,7 @@ include_once( 'Assets.php' );
         $user = new User;
         $products = new Products;
         $assets = new Assets;
+        $shortcode = new Shortcode;
 
     }
 
